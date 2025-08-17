@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amit Jaiswal — Portfolio</title>
+  <meta name="description" content="Portfolio of Amit Jaiswal — Senior Clinical Scientist & Software Development Lead. MEG/EEG research, software, publications, and contact." />
+  <meta name="theme-color" content="#0ea5e9" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0ea5e9" media="(prefers-color-scheme: dark)">
+  <meta property="og:title" content="Amit Jaiswal — Portfolio" />
+  <meta property="og:description" content="MEG/EEG research, software, publications, and projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/" />
+  <style>
+    :root{
+      --bg: #0b1220;
+      --bg-elev: #101a2f;
+      --text: #e6eef8;
+      --muted: #9fb3c8;
+      --brand: #38bdf8; /* sky-400 */
+      --brand-2: #22d3ee; /* cyan-400 */
+      --accent: #a78bfa; /* violet-400 */
+      --ok: #34d399;
+      --warn: #f59e0b;
+      --card: #0f172a;
+      --border: #1f2a44;
+      --shadow: 0 8px 30px rgb(0 0 0 / 0.35);
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg: #f8fafc; --bg-elev:#ffffff; --text:#0b1220; --muted:#4b5563; --card:#ffffff; --border:#e5e7eb; }
+      .hero{ background: radial-gradient(60% 60% at 50% 38%, #e0f2fe 0%, rgba(14,165,233,0.12) 60%, rgba(0,0,0,0) 100%); }
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; background:var(--bg); color:var(--text)}
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:0 1.1rem}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:50;background:rgba(11,18,32,0.7);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border)}
+    @media (prefers-color-scheme: light){ .nav{background:rgba(255,255,255,0.8)} }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .brand{display:flex;align-items:center;gap:.6rem;font-weight:700}
+    .brand .logo{width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--brand),var(--brand-2)); box-shadow: var(--shadow)}
+    .nav-links{display:flex;gap:1rem;align-items:center}
+    .nav-links a{padding:.5rem .75rem;border-radius:10px}
+    .nav-links a:hover{background:var(--bg-elev)}
+    .nav-right{display:flex;align-items:center;gap:.5rem}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .85rem;border:1px solid var(--border);border-radius:12px;background:var(--bg-elev);color:var(--text)}
+    .btn:hover{transform:translateY(-1px);text-decoration:none}
+    .menu-btn{display:none}
+    @media (max-width: 860px){
+      .menu-btn{display:inline-flex}
+      .nav-links{display:none;position:absolute;left:0;right:0;top:64px;background:var(--bg);border-bottom:1px solid var(--border);padding:.75rem}
+      .nav-links.open{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+      .nav-links a{background:var(--bg-elev)}
+    }
+
+    /* Hero */
+    .hero{padding:72px 0 40px;border-bottom:1px solid var(--border); background: radial-gradient(60% 60% at 50% 38%, rgba(56,189,248,0.15) 0%, rgba(34,211,238,0.10) 40%, rgba(0,0,0,0) 70%)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+    @media (max-width: 920px){ .hero-grid{grid-template-columns:1fr} }
+    .chip{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .6rem;border:1px dashed var(--border);border-radius:999px;color:var(--muted)}
+    h1{font-size:42px;line-height:1.1;margin:.6rem 0 0}
+    .subtitle{font-size:18px;color:var(--muted);margin:.6rem 0 1.2rem}
+    .actions{display:flex;gap:.6rem;flex-wrap:wrap}
+    .avatar{width:140px;height:140px;border-radius:24px;border:1px solid var(--border);background:linear-gradient(180deg, #1f2937, #0b1220);display:grid;place-items:center;font-size:58px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:1rem;box-shadow:var(--shadow)}
+
+    /* Sections */
+    section{padding:56px 0;border-bottom:1px solid var(--border)}
+    section h2{font-size:28px;margin:0 0 1rem}
+    .lead{color:var(--muted)}
+
+    /* Grid cards */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width: 980px){ .grid{grid-template-columns:repeat(2,1fr)} }
+    @media (max-width: 640px){ .grid{grid-template-columns:1fr} }
+
+    .proj h3{margin:.2rem 0}
+    .tag{display:inline-block;font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:999px;padding:.2rem .5rem;margin-right:.3rem}
+
+    /* Timeline */
+    .timeline{position:relative;margin-left:10px}
+    .timeline:before{content:"";position:absolute;left:10px;top:0;bottom:0;width:2px;background:linear-gradient(var(--brand), var(--accent))}
+    .t-item{position:relative;padding-left:36px;margin:18px 0}
+    .t-item:before{content:"";position:absolute;left:3px;top:.4rem;width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--brand)}
+
+    /* Footer */
+    footer{padding:32px 0;color:var(--muted);text-align:center}
+
+    /* Utilities */
+    .hidden{display:none}
+    .kbd{border:1px solid var(--border);border-bottom-width:3px;font-size:12px;padding:.1rem .35rem;border-radius:6px}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Amit Jaiswal",
+    "jobTitle": "Senior Clinical Scientist & Software Development Lead",
+    "worksFor": {"@type":"Organization","name":"MEGIN Oy"},
+    "url": "https://YOUR-USERNAME.github.io/",
+    "address": {"@type":"PostalAddress","addressLocality":"Helsinki","addressCountry":"FI"},
+    "sameAs": [
+      "https://www.linkedin.com/in/amit-jaiswal-003a5227/",
+      "https://scholar.google.com/citations?user=n843Q_kAAAAJ&hl=en",
+      "https://github.com/YOUR-USERNAME"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand" aria-label="Home">
+        <span class="logo" aria-hidden="true"></span>
+        <span>Amit Jaiswal</span>
+      </a>
+      <div class="nav-right">
+        <div class="nav-links" id="navLinks" role="navigation" aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#publications">Publications</a>
+          <a href="#projects">Projects</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <button class="btn menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks" title="Menu">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Menu
+        </button>
+        <button class="btn" id="themeBtn" title="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 3a9 9 0 108.485 5.657A7 7 0 0112 3z" stroke="currentColor" stroke-width="2"/></svg>
+          Theme
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div>
+        <span class="chip">Portfolio • MEG/EEG • Python</span>
+        <h1>Hi, I’m Amit — I build clinical MEG software and EEG/MEG tools in Python.</h1>
+        <p class="subtitle">Senior Clinical Scientist & Software Development Lead at MEGIN Oy (Helsinki). Focused on source modeling, FieldTrip→Python ports, and practical tools for clinicians and researchers.</p>
+        <div class="actions">
+          <a class="btn" href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/amit-jaiswal-003a5227/" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn" href="#projects">View Projects</a>
+          <a class="btn" href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="card" aria-label="avatar">
+        <div class="avatar" aria-hidden="true">🧠</div>
+        <div style="margin-top:.6rem;color:var(--muted)">Add your own photo: <span class="kbd">profile.jpg</span> &rarr; replace the emoji box.</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container">
+      <h2>About</h2>
+      <p class="lead">I’m an Indian researcher based in Helsinki with 9+ years at MEGIN working on MEG applications. I enjoy converting MATLAB/FieldTrip algorithms to fast, clean Python and building tools clinicians can actually use.</p>
+      <div class="grid">
+        <div class="card">
+          <strong>Interests</strong>
+          <p>Forward modeling, source reconstruction, ICA quality checks, BIDS workflows, and browser-based visualization (e.g., pseudo-MRI from .fif files).</p>
+        </div>
+        <div class="card">
+          <strong>Currently</strong>
+          <p>Creating a Python version of <em>ft_prepare_leadfield</em> and related functions; exploring clinical MEG collaborations and funding opportunities.</p>
+        </div>
+        <div class="card">
+          <strong>Location</strong>
+          <p>Helsinki, Finland • Available for collaborations & scientific consulting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications">
+    <div class="container">
+      <h2>Selected Publications</h2>
+      <p class="lead">A short list — see Google Scholar for the full list.</p>
+      <div class="card">
+        <ol>
+          <li>
+            <strong>Investigating the Spatio-Temporal Signatures of Language Control–Related Brain Synchronization Processes</strong> (Human Brain Mapping, 2025).
+            <br><span class="muted">Add co-authors here.</span>
+          </li>
+          <li>
+            <strong>Pseudo MRI Engine for .fif → MRI</strong> — Python package. <a href="https://github.com/neurosignal/pseudo-MRI-engine" target="_blank" rel="noopener">Repository</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="grid">
+        <article class="card proj">
+          <div class="tag">Python</div>
+          <h3>FieldTrip → Python: Leadfield Suite</h3>
+          <p>Re-implementation of <code>ft_prepare_leadfield</code>, <code>ft_compute_leadfield</code>, and helpers (<code>lbex</code>, <code>meg_forward</code>, <code>patchsvd</code>, <code>ft_scalingfactor</code>, <code>surface_inside</code>).</p>
+          <p><a href="https://github.com/YOUR-USERNAME/leadfield-python" target="_blank" rel="noopener">Repo</a></p>
+        </article>
+        <article class="card proj">
+          <div class="tag">Web</div>
+          <h3>Pseudo MRI Engine (Web)</h3>
+          <p>Browser UI to turn <code>.fif</code> into pseudo-MRI previews for quick QC and reports. Planned integration with MNE-BIDS.</p>
+          <p><a href="https://github.com/neurosignal/pseudo-MRI-engine" target="_blank" rel="noopener">Repo</a></p>
+        </article>
+        <article class="card proj">
+          <div class="tag">Clinical</div>
+          <h3>ICA Quality Check Toolkit</h3>
+          <p>Improved code structure & quality for MEG ICA component review, enabling faster artifact rejection in clinics.</p>
+          <p><a href="#">Docs</a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section id="timeline">
+    <div class="container">
+      <h2>Timeline</h2>
+      <div class="timeline">
+        <div class="t-item">
+          <strong>2025</strong>
+          <div>Senior Clinical Scientist & Software Development Lead — MEGIN Oy.</div>
+        </div>
+        <div class="t-item">
+          <strong>2016–2024</strong>
+          <div>MEG Application Scientist — MEGIN Oy, Helsinki.</div>
+        </div>
+        <div class="t-item">
+          <strong>Earlier</strong>
+          <div>Research in EEG/MEG methods; graduate studies; moved to Finland.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="grid">
+        <div class="card">
+          <p class="lead">Open to collaborations on clinical MEG research, funding proposals, and Python tooling.</p>
+          <p>
+            <a class="btn" href="mailto:YOUR.EMAIL@example.com">Email me</a>
+            <a class="btn" href="https://scholar.google.com/citations?user=n843Q_kAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a class="btn" href="https://www.linkedin.com/in/amit-jaiswal-003a5227/" target="_blank" rel="noopener">LinkedIn</a>
+          </p>
+        </div>
+        <div class="card">
+          <strong>Quick facts</strong>
+          <ul>
+            <li>Based in Helsinki (UTC+3 summer / UTC+2 winter).</li>
+            <li>Tech: Python, MNE, NumPy, SciPy, Web (HTML/CSS/JS).</li>
+            <li>Interests: Source modeling, transfer learning, clinical workflows.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Amit Jaiswal • Built with vanilla HTML/CSS. Hosted on GitHub Pages.
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn?.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    // Theme toggle (simple)
+    const themeBtn = document.getElementById('themeBtn');
+    themeBtn?.addEventListener('click', () => {
+      document.documentElement.classList.toggle('light');
+      // Flip colors for demo by toggling prefers-color-scheme emulation
+      if(document.documentElement.classList.contains('light')){
+        document.documentElement.style.colorScheme = 'light';
+      } else {
+        document.documentElement.style.colorScheme = 'dark';
+      }
+    });
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
